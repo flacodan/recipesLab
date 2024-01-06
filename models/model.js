@@ -2,7 +2,7 @@ import Sequelize, { DataTypes, Model } from 'sequelize'
 
 const sequelize = new Sequelize('postgresql:///recipe_app', { define: { underscored: true }});
 
-class Ingredient extends Model {}
+export class Ingredient extends Model {}
 
 Ingredient.init(
     {
@@ -27,7 +27,7 @@ Ingredient.init(
     }
 )
 
-class Recipe extends Model {}
+export class Recipe extends Model {}
 Recipe.init(
     {
         id: {
@@ -55,7 +55,7 @@ Recipe.init(
     }
 );
 
-class Author extends Model {}
+export class Author extends Model {}
 Author.init(
     {
         id: {
@@ -79,7 +79,7 @@ Author.init(
     }
 );
 
-class Recipe_ingredient extends Model {}
+export class Recipe_ingredient extends Model {}
 Recipe_ingredient.init(
     {
         id: {
@@ -109,5 +109,5 @@ Author.hasMany(Recipe, { foreignKey: 'authorId' });
 Recipe.belongsTo(Author, { foreignKey: 'authorId' });
 
 
-await sequelize.sync({ force: true });
-await sequelize.close();
+// await sequelize.sync({ force: true });
+// await sequelize.close();
